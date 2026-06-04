@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTech Student Professional Resume Builder</title>
+  <!-- Modern clean typography for UI and Resume -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <!-- Style Link -->
+  <!-- FontAwesome Icons for Customizer -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" crossorigin href="/assets/index-DpZ71eHx.css">
+</head>
+
+<body class="theme-blue">
+  <!-- Main Application Wrapper -->
+  <div class="app-container">
+
+    <!-- Left Sidebar Customizer Panel -->
+    <aside class="sidebar-panel no-print">
+      <header class="sidebar-header">
+        <div class="logo-area">
+          <div class="logo-icon"><i class="fa-solid fa-file-invoice"></i></div>
+          <div>
+            <h1>ResumeBuilder</h1>
+            <p>B.Tech Edition • ATS-Optimized</p>
+          </div>
+        </div>
+      </header>
+
+      <nav class="customizer-tabs">
+        <button class="tab-btn active" data-tab="personal"><i class="fa-solid fa-user"></i><span>Contact</span></button>
+        <button class="tab-btn" data-tab="education"><i
+            class="fa-solid fa-graduation-cap"></i><span>Education</span></button>
+        <button class="tab-btn" data-tab="skills"><i class="fa-solid fa-code"></i><span>Skills</span></button>
+        <button class="tab-btn" data-tab="experience"><i
+            class="fa-solid fa-briefcase"></i><span>Experience</span></button>
+        <button class="tab-btn" data-tab="projects"><i
+            class="fa-solid fa-project-diagram"></i><span>Projects</span></button>
+        <button class="tab-btn" data-tab="extra"><i
+            class="fa-solid fa-certificate"></i><span>Certifications</span></button>
+      </nav>
+
+      <div class="customizer-content">
+        <!-- PERSONAL/CONTACT TAB -->
+        <section class="tab-content active" id="tab-personal">
+          <h2 class="form-title">Personal Information</h2>
+          <div class="form-group">
+            <label for="input-name">Full Name</label>
+            <input type="text" id="input-name" placeholder="John Doe" value="Ronit Sinha">
+          </div>
+          <div class="form-group">
+            <label for="input-title">Target Role / Subtitle</label>
+            <input type="text" id="input-title" placeholder="Computer Science Student"
+              value="Computer Science & Engineering Undergraduate">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="input-email">Email Address</label>
+              <input type="email" id="input-email" placeholder="name@email.com" value="ronitsinha2005@gmail.com">
+            </div>
+            <div class="form-group">
+              <label for="input-phone">Phone Number</label>
+              <input type="tel" id="input-phone" placeholder="+91 98765 43210" value="+91 99999 99999">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="input-location">Location</label>
+              <input type="text" id="input-location" placeholder="Delhi, India" value="Phagwara, India">
+            </div>
+            <div class="form-group">
+              <label for="input-portfolio">Portfolio URL</label>
+              <input type="url" id="input-portfolio" placeholder="ronitsinha.dev" value="">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="input-github">GitHub Profile (URL or Username)</label>
+              <input type="text" id="input-github" placeholder="github.com/username"
+                value="https://github.com/ronitsinha2005">
+            </div>
+            <div class="form-group">
+              <label for="input-linkedin">LinkedIn Profile (URL or Username)</label>
+              <input type="text" id="input-linkedin" placeholder="linkedin.com/in/username"
+                value="https://linkedin.com/in/ronitsinha2005">
+            </div>
+          </div>
+        </section>
+
+        <!-- EDUCATION TAB -->
+        <section class="tab-content" id="tab-education">
+          <h2 class="form-title">Education</h2>
+          <div id="education-inputs">
+            <!-- Loopable education list -->
+            <div class="education-block form-card" data-index="0">
+              <div class="card-header">
+                <h3>Undergraduate Degree</h3>
+              </div>
+              <div class="form-group">
+                <label>Institution Name</label>
+                <input type="text" class="edu-inst" placeholder="Lovely Professional University"
+                  value="Lovely Professional University (LPU)">
+              </div>
+              <div class="form-group">
+                <label>Degree & Major</label>
+                <input type="text" class="edu-degree"
+                  placeholder="Bachelor of Technology in Computer Science & Engineering"
+                  value="Bachelor of Technology in Computer Science & Engineering">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Graduation Year/Period</label>
+                  <input type="text" class="edu-date" placeholder="2025 - 2029" value="2025 - 2029">
+                </div>
+                <div class="form-group">
+                  <label>GPA / CGPA</label>
+                  <input type="text" class="edu-gpa" placeholder="7.5/10.0" value="7.5 / 10.0">
+                </div>
+              </div>
+            </div>
+
+            <div class="education-block form-card" data-index="1">
+              <div class="card-header">
+                <h3>High School / Secondary</h3>
+                <button class="delete-btn" onclick="removeEducation(1)"><i class="fa-solid fa-trash-can"></i></button>
+              </div>
+              <div class="form-group">
+                <label>School Name</label>
+                <input type="text" class="edu-inst" placeholder="Heritage International School"
+                  value="Heritage International School">
+              </div>
+              <div class="form-group">
+                <label>Board / Core Studies</label>
+                <input type="text" class="edu-degree" placeholder="CBSE Class X" value="CBSE Class X">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Graduation Year/Period</label>
+                  <input type="text" class="edu-date" placeholder="2022" value="2022">
+                </div>
+                <div class="form-group">
+                  <label>Percentage / GPA</label>
+                  <input type="text" class="edu-gpa" placeholder="89%" value="89%">
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="action-btn outline-btn" id="add-education-btn"><i class="fa-solid fa-plus"></i> Add
+            Education</button>
+        </section>
+
+        <!-- SKILLS TAB -->
+        <section class="tab-content" id="tab-skills">
+          <h2 class="form-title">Technical Skills</h2>
+          <p class="tab-instruction">Separate categories and group skills so ATS parses them logically. Keep
+            descriptions succinct.</p>
+          <div class="form-group">
+            <label for="input-skill-languages">Programming Languages</label>
+            <input type="text" id="input-skill-languages" placeholder="C++, Java, Python, JavaScript"
+              value="C/C++, Python, JavaScript , DBMS, SQL, HTML/CSS">
+          </div>
+          <div class="form-group">
+            <label for="input-skill-frameworks">Frameworks & Libraries</label>
+            <input type="text" id="input-skill-frameworks" placeholder="React, Node.js, Express, Next.js"
+              value="React.js, Node.js, Express.js, Tailwind CSS">
+          </div>
+          <div class="form-group">
+            <label for="input-skill-tools">Developer Tools & Platforms</label>
+            <input type="text" id="input-skill-tools" placeholder="Git, GitHub, VS Code, Docker, AWS"
+              value="Git, GitHub">
+          </div>
+          <div class="form-group">
+            <label for="input-skill-databases">Databases & Methodologies</label>
+            <input type="text" id="input-skill-databases" placeholder="MongoDB, PostgreSQL, MySQL"
+              value="MongoDB, MySQL, RESTful APIs, OOPs, Data Structures & Algorithms">
+          </div>
+        </section>
+
+        <!-- WORK EXPERIENCE TAB -->
+        <section class="tab-content" id="tab-experience">
+          <div class="header-with-actions">
+            <h2 class="form-title">Work Experience</h2>
+            <div class="toggle-container">
+              <label class="switch">
+                <input type="checkbox" id="toggle-experience-sec" checked>
+                <span class="slider round"></span>
+              </label>
+              <span class="toggle-label">Show Section</span>
+            </div>
+          </div>
+          <p class="tab-instruction">Focus on achievements and impact. Start each bullet point with a powerful action
+            verb (e.g., Developed, Optimized, Integrated).</p>
+
+          <div id="experience-inputs">
+            <!-- Dynamic Experience Blocks -->
+            <div class="experience-block form-card" data-index="0">
+              <div class="card-header">
+                <h3>Experience #1</h3>
+                <button class="delete-btn" onclick="removeExperience(0)"><i class="fa-solid fa-trash-can"></i></button>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Company / Organization</label>
+                  <input type="text" class="exp-company" placeholder="Acme Corp"
+                    value="Google Summer of Code (GSoC) - Contributor">
+                </div>
+                <div class="form-group">
+                  <label>Job Title / Role</label>
+                  <input type="text" class="exp-role" placeholder="Software Engineer Intern"
+                    value="Software Developer Intern">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Duration / Dates</label>
+                  <input type="text" class="exp-date" placeholder="May 2025 - August 2025"
+                    value="May 2025 - August 2025">
+                </div>
+                <div class="form-group">
+                  <label>Location</label>
+                  <input type="text" class="exp-location" placeholder="Remote / Bengaluru" value="Remote">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Bullet Points (one per line)</label>
+                <textarea class="exp-bullets" rows="4"
+                  placeholder="- Developed a React dashboard...">- Developed and refactored a scalable open-source component library, improving developer onboarding times by 20%
+- Designed modular UI micro-frontends using React and TypeScript, optimizing build times and lowering bundle sizes by 15%
+- Conducted unit testing with Jest and RTL, raising core test coverage from 68% to 89% to guarantee code robustness</textarea>
+              </div>
+            </div>
+
+            <div class="experience-block form-card" data-index="1">
+              <div class="card-header">
+                <h3>Experience #2</h3>
+                <button class="delete-btn" onclick="removeExperience(1)"><i class="fa-solid fa-trash-can"></i></button>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Company / Organization</label>
+                  <input type="text" class="exp-company" placeholder="Acme Corp" value="InnoTech Solutions">
+                </div>
+                <div class="form-group">
+                  <label>Job Title / Role</label>
+                  <input type="text" class="exp-role" placeholder="Software Engineer Intern"
+                    value="Web Development Intern">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Duration / Dates</label>
+                  <input type="text" class="exp-date" placeholder="Dec 2024 - Jan 2025" value="Dec 2024 - Jan 2025">
+                </div>
+                <div class="form-group">
+                  <label>Location</label>
+                  <input type="text" class="exp-location" placeholder="Remote / Bengaluru" value="New Delhi, India">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Bullet Points (one per line)</label>
+                <textarea class="exp-bullets" rows="4"
+                  placeholder="- Developed a React dashboard...">- Constructed backend REST APIs using Node.js and Express, supporting concurrent request handling for over 10,000+ monthly active users
+- Integrated MongoDB schemas and optimized aggregations, reducing API average response times by 30%
+- Worked closely with senior engineers in an Agile sprint environment, contributing to daily stand-ups and CI/CD pipelines</textarea>
+              </div>
+            </div>
+          </div>
+          <button class="action-btn outline-btn" id="add-experience-btn"><i class="fa-solid fa-plus"></i> Add Work
+            Experience</button>
+        </section>
+
+        <!-- PROJECTS TAB -->
+        <section class="tab-content" id="tab-projects">
+          <div class="header-with-actions">
+            <h2 class="form-title">Academic & Side Projects</h2>
+            <div class="toggle-container">
+              <label class="switch">
+                <input type="checkbox" id="toggle-projects-sec" checked>
+                <span class="slider round"></span>
+              </label>
+              <span class="toggle-label">Show Section</span>
+            </div>
+          </div>
+          <p class="tab-instruction">BTech students must showcase strong engineering projects. Describe the tech stack,
+            what you engineered, and numerical performance outcomes.</p>
+
+          <div id="projects-inputs">
+            <!-- Dynamic Project Blocks -->
+            <div class="project-block form-card" data-index="0">
+              <div class="card-header">
+                <h3>Project #1</h3>
+                <button class="delete-btn" onclick="removeProject(0)"><i class="fa-solid fa-trash-can"></i></button>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Project Title</label>
+                  <input type="text" class="proj-title" placeholder="E-Commerce Engine"
+                    value="Distributed Key-Value Store">
+                </div>
+                <div class="form-group">
+                  <label>Technologies Used</label>
+                  <input type="text" class="proj-tech" placeholder="React, Redux"
+                    value="Go, gRPC, Protobuf, Raft Consensus, Docker">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Timeline / Date</label>
+                  <input type="text" class="proj-date" placeholder="March 2025" value="Feb 2025 - Mar 2025">
+                </div>
+                <div class="form-group">
+                  <label>Project Link / Repository</label>
+                  <input type="text" class="proj-link" placeholder="github.com/..."
+                    value="https://github.com/ronitsinha2005/dist-kv">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Bullet Points (one per line)</label>
+                <textarea class="proj-bullets" rows="4"
+                  placeholder="- Developed...">- Engineered a highly available distributed Key-Value database in Go, implementing the Raft Consensus Protocol to manage consistent replication
+- Leveraged gRPC and Protobuf for ultra-fast, low-latency node-to-node communication, boosting throughput by 40%
+- Designed a custom WAL (Write-Ahead Logging) storage engine, ensuring data durability across node crashes and system recoveries</textarea>
+              </div>
+            </div>
+
+            <div class="project-block form-card" data-index="1">
+              <div class="card-header">
+                <h3>Project #2</h3>
+                <button class="delete-btn" onclick="removeProject(1)"><i class="fa-solid fa-trash-can"></i></button>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Project Title</label>
+                  <input type="text" class="proj-title" placeholder="E-Commerce Engine"
+                    value="CricketVision - Cricket Analytics Dashboard">
+                </div>
+                <div class="form-group">
+                  <label>Technologies Used</label>
+                  <input type="text" class="proj-tech" placeholder="React, Redux"
+                    value="Python, Django, React, Chart.js, PostgreSQL">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Timeline / Date</label>
+                  <input type="text" class="proj-date" placeholder="March 2025" value="Sep 2024 - Nov 2024">
+                </div>
+                <div class="form-group">
+                  <label>Project Link / Repository</label>
+                  <input type="text" class="proj-link" placeholder="github.com/..."
+                    value="https://github.com/ronitsinha2005/cricketvision">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Bullet Points (one per line)</label>
+                <textarea class="proj-bullets" rows="4"
+                  placeholder="- Developed...">- Built an end-to-end cricket match analytics system featuring live score streaming via WebSockets and intuitive dynamic user widgets
+- Formulated prediction algorithms using Scikit-Learn to estimate fantasy dream team points, scoring an 86% accuracy margin
+- Implemented rich PostgreSQL database optimizations with indexing and caching, dropping average load times under 120ms</textarea>
+              </div>
+            </div>
+          </div>
+          <button class="action-btn outline-btn" id="add-project-btn"><i class="fa-solid fa-plus"></i> Add
+            Project</button>
+        </section>
+
+        <!-- EXTRA/ACHIEVEMENTS TAB -->
+        <section class="tab-content" id="tab-extra">
+          <div class="header-with-actions">
+            <h2 class="form-title">Certifications & Leadership</h2>
+            <div class="toggle-container">
+              <label class="switch">
+                <input type="checkbox" id="toggle-extra-sec" checked>
+                <span class="slider round"></span>
+              </label>
+              <span class="toggle-label">Show Section</span>
+            </div>
+          </div>
+          <p class="tab-instruction">Add tech certifications, cloud credentials, competitive algorithm profiles, and
+            leadership achievements.</p>
+
+          <h3
+            style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent-blue); margin-bottom: 0.75rem; font-weight: 600;">
+            Certifications</h3>
+          <div id="certifications-inputs">
+            <!-- Dynamic Certification Blocks -->
+            <div class="certification-block form-card" data-index="0">
+              <div class="card-header">
+                <h3>Certification #1</h3>
+              </div>
+              <div class="form-group">
+                <label>Certificate Name</label>
+                <input type="text" class="cert-name" placeholder="Certificate Name"
+                  value="Google Cloud Certified Associate Cloud Engineer (ACE)">
+              </div>
+              <div class="form-group">
+                <label>Description / Authority</label>
+                <input type="text" class="cert-desc"
+                  placeholder="Validated core infrastructure administration and containerized deployments."
+                  value="Validated core infrastructure administration and containerized deployments.">
+              </div>
+            </div>
+
+            <div class="certification-block form-card" data-index="1">
+              <div class="card-header">
+                <h3>Certification #2</h3>
+                <button class="delete-btn" onclick="removeCertification(1)"><i
+                    class="fa-solid fa-trash-can"></i></button>
+              </div>
+              <div class="form-group">
+                <label>Certificate Name</label>
+                <input type="text" class="cert-name" placeholder="Certificate Name"
+                  value="Advanced Web Development Professional Certification - Udemy">
+              </div>
+              <div class="form-group">
+                <label>Description / Authority</label>
+                <input type="text" class="cert-desc"
+                  placeholder="Constructed modern full-stack web architectures with Node, React, and MongoDB."
+                  value="Constructed modern full-stack web architectures with Node, React, and MongoDB.">
+              </div>
+            </div>
+
+            <div class="certification-block form-card" data-index="2">
+              <div class="card-header">
+                <h3>Certification #3</h3>
+                <button class="delete-btn" onclick="removeCertification(2)"><i
+                    class="fa-solid fa-trash-can"></i></button>
+              </div>
+              <div class="form-group">
+                <label>Certificate Name</label>
+                <input type="text" class="cert-name" placeholder="Certificate Name"
+                  value="NPTEL Certification in Data Structures and Algorithms">
+              </div>
+              <div class="form-group">
+                <label>Description / Authority</label>
+                <input type="text" class="cert-desc"
+                  placeholder="Completed rigorous curriculum on computational complexity and optimized algorithms (Elite Silver)."
+                  value="Completed rigorous curriculum on computational complexity and optimized algorithms (Elite Silver).">
+              </div>
+            </div>
+          </div>
+          <button class="action-btn outline-btn" id="add-certification-btn" style="margin-bottom: 1.5rem;"><i
+              class="fa-solid fa-plus"></i> Add Certification</button>
+
+          <h3
+            style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent-blue); margin-bottom: 0.75rem; font-weight: 600;">
+            Achievements & Ranks</h3>
+          <div class="form-group">
+            <label>Achievements (one per line)</label>
+            <textarea id="input-achievements" rows="4" placeholder="- Secured Global Rank...">- Secured Global Rank 842 in LeetCode Weekly Contest out of 30,000+ coders
+- Solved 500+ data structures and algorithms challenges on LeetCode and HackerRank
+- Winner of Lovely Professional University Smart India Hackathon internal round 2025</textarea>
+          </div>
+
+          <h3
+            style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent-blue); margin-bottom: 0.75rem; font-weight: 600;">
+            Leadership & Extra</h3>
+          <div class="form-group">
+            <label>Leadership / Extra-Curriculars (one per line)</label>
+            <textarea id="input-leadership" rows="4" placeholder="- Lead Organizer at College Tech Club...">- Creative Lead at LPU Web Developer Club; mentored 40+ junior students in basic JavaScript and CSS architecture
+- Active Volunteer Organizer at Lovely Professional University Annual Technical Festival</textarea>
+          </div>
+        </section>
+      </div>
+
+      <!-- Sidebar Footer Settings -->
+      <footer class="sidebar-footer">
+        <div class="setting-row">
+          <label class="setting-label">Accent Color</label>
+          <div class="color-picker">
+            <button class="color-swatch active" data-theme="theme-blue" style="background-color: #0F52BA;"
+              title="Royal Blue"></button>
+            <button class="color-swatch" data-theme="theme-emerald" style="background-color: #008080;"
+              title="Emerald"></button>
+            <button class="color-swatch" data-theme="theme-charcoal" style="background-color: #333333;"
+              title="Charcoal"></button>
+            <button class="color-swatch" data-theme="theme-indigo" style="background-color: #4B0082;"
+              title="Indigo"></button>
+          </div>
+        </div>
+
+        <div class="setting-row">
+          <label class="setting-label">Typography Style</label>
+          <select id="font-family-select" class="sidebar-select">
+            <option value="font-inter">Modern Sans (Inter)</option>
+            <option value="font-system">Traditional ATS (System Sans)</option>
+            <option value="font-monospace">Tech Dev (JetBrains Mono)</option>
+          </select>
+        </div>
+
+        <div class="footer-actions">
+          <button class="action-btn primary-btn" id="print-btn">
+            <i class="fa-solid fa-print"></i> Print / Download PDF
+          </button>
+          <button class="action-btn secondary-btn" id="reset-btn" title="Restore defaults">
+            <i class="fa-solid fa-rotate-left"></i> Reset
+          </button>
+        </div>
+      </footer>
+    </aside>
+
+    <!-- Right Live Resume Preview Area -->
+    <main class="resume-preview-area">
+      <!-- Layout Mode Warning Banner for Web View -->
+      <div class="web-banner no-print">
+        <div class="banner-content">
+          <i class="fa-solid fa-circle-info"></i>
+          <span>This is an interactive preview. Click <strong>Print / Download PDF</strong> in the sidebar. For best
+            results, select <strong>Save as PDF</strong> and uncheck <strong>Headers and Footers</strong> in browser
+            print settings.</span>
+        </div>
+      </div>
+
+      <!-- The Real A4 Sheet Canvas -->
+      <div class="resume-sheet font-inter" id="resume-canvas">
+
+        <!-- Header Info -->
+        <header class="resume-header">
+          <h1 id="resume-name" class="resume-name">Ronit Sinha</h1>
+          <p id="resume-title" class="resume-tagline">Computer Science & Engineering Undergraduate</p>
+
+          <div class="resume-contact-info">
+            <span id="resume-email-container"><i class="fa-solid fa-envelope"></i> <a
+                href="mailto:ronitsinha2005@gmail.com" id="resume-email">ronitsinha2005@gmail.com</a></span>
+            <span class="dot-separator">•</span>
+            <span id="resume-phone-container"><i class="fa-solid fa-phone"></i> <span id="resume-phone">+91
+                99999 99999</span></span>
+            <span class="dot-separator">•</span>
+            <span id="resume-location-container"><i class="fa-solid fa-location-dot"></i> <span
+                id="resume-location">Phagwara, India</span></span>
+          </div>
+
+          <div class="resume-social-info">
+            <span id="resume-portfolio-container"><i class="fa-solid fa-globe"></i> <a href="" target="_blank"
+                id="resume-portfolio"></a></span>
+            <span class="dot-separator">•</span>
+            <span id="resume-github-container"><i class="fa-brands fa-github"></i> <a
+                href="https://github.com/ronitsinha2005" target="_blank"
+                id="resume-github">github.com/ronitsinha2005</a></span>
+            <span class="dot-separator">•</span>
+            <span id="resume-linkedin-container"><i class="fa-brands fa-linkedin"></i> <a
+                href="https://linkedin.com/in/ronitsinha2005" target="_blank"
+                id="resume-linkedin">linkedin.com/in/ronitsinha2005</a></span>
+          </div>
+        </header>
+
+        <!-- EDUCATION SECTION -->
+        <section class="resume-section" id="section-education">
+          <h2 class="section-title">EDUCATION</h2>
+          <div class="education-container" id="resume-education-list">
+            <!-- Dynamic elements will render here -->
+          </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section class="resume-section" id="section-skills">
+          <h2 class="section-title">TECHNICAL SKILLS</h2>
+          <div class="skills-grid">
+            <p id="resume-skills-languages-row"><strong>Programming Languages:</strong> <span
+                id="resume-skills-languages">C/C++, Java, Python, JavaScript (ES6+), SQL, HTML/CSS</span></p>
+            <p id="resume-skills-frameworks-row"><strong>Frameworks & Libraries:</strong> <span
+                id="resume-skills-frameworks">React.js, Node.js, Express.js, Tailwind CSS, Bootstrap, Flask</span></p>
+            <p id="resume-skills-tools-row"><strong>Developer Tools & Platforms:</strong> <span
+                id="resume-skills-tools">Git, GitHub, Docker, AWS (S3, EC2), Postman, Linux Command Line</span></p>
+            <p id="resume-skills-databases-row"><strong>Databases & Methodologies:</strong> <span
+                id="resume-skills-databases">MongoDB, MySQL, PostgreSQL, RESTful APIs, OOPs, Data Structures &
+                Algorithms</span></p>
+          </div>
+        </section>
+
+        <!-- EXPERIENCE SECTION -->
+        <section class="resume-section" id="section-experience">
+          <h2 class="section-title">WORK EXPERIENCE</h2>
+          <div class="experience-container" id="resume-experience-list">
+            <!-- Dynamic items -->
+          </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section class="resume-section" id="section-projects">
+          <h2 class="section-title">ACADEMIC & SIDE PROJECTS</h2>
+          <div class="projects-container" id="resume-projects-list">
+            <!-- Dynamic items -->
+          </div>
+        </section>
+
+        <!-- CERTIFICATIONS SECTION -->
+        <section class="resume-section" id="section-certifications">
+          <h2 class="section-title">CERTIFICATIONS</h2>
+          <div class="certifications-container" id="resume-certifications-list">
+            <!-- Dynamic certifications render here -->
+          </div>
+        </section>
+
+        <!-- ACHIEVEMENTS SECTION -->
+        <section class="resume-section" id="section-achievements">
+          <h2 class="section-title">ACHIEVEMENTS</h2>
+          <ul id="resume-achievements-list" class="resume-bullets">
+            <!-- Bullet points go here -->
+          </ul>
+        </section>
+
+        <!-- LEADERSHIP & VOLUNTEERING SECTION -->
+        <section class="resume-section" id="section-leadership">
+          <h2 class="section-title">LEADERSHIP & VOLUNTEERING</h2>
+          <ul id="resume-leadership-list" class="resume-bullets">
+            <!-- Bullet points go here -->
+          </ul>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
