@@ -33,9 +33,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const resumeProjList = document.getElementById('resume-projects-list');
   const resumeCertsList = document.getElementById('resume-certifications-list');
 
+  const STORAGE_KEY = 'resume_builder_template_v4';
+
   // Load Initial Data from DOM inputs (set in index.html) or LocalStorage
   function initializeData() {
-    if (localStorage.getItem('ronit_sinha_resume_data')) {
+    // Purge legacy/stale localstorage caches so the newest template values are displayed immediately
+    ['ronit_sinha_resume_data', 'btech_resume_builder_data', 'resume_builder_data_v1', 'resume_builder_data_v2', 'resume_builder_data_v3'].forEach(k => localStorage.removeItem(k));
+
+    if (localStorage.getItem(STORAGE_KEY)) {
       loadFromLocalStorage();
     } else {
       pullDataFromForm();
@@ -399,12 +404,12 @@ document.addEventListener('DOMContentLoaded', () => {
       showProj: document.getElementById('toggle-projects-sec').checked,
       showExtra: document.getElementById('toggle-extra-sec').checked
     };
-    localStorage.setItem('ronit_sinha_resume_data', JSON.stringify(data));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
   }
 
   function loadFromLocalStorage() {
     try {
-      const saved = JSON.parse(localStorage.getItem('ronit_sinha_resume_data'));
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
       if (!saved) return;
 
       // Personal
@@ -485,20 +490,20 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <div class="form-group">
           <label>Institution Name</label>
-          <input type="text" class="edu-inst" placeholder="College or University" value="${edu.institution || ''}">
+          <input type="text" class="edu-inst" placeholder="University / College Name" value="${edu.institution || ''}">
         </div>
         <div class="form-group">
           <label>Degree & Major</label>
-          <input type="text" class="edu-degree" placeholder="B.Tech in Computer Engineering" value="${edu.degree || ''}">
+          <input type="text" class="edu-degree" placeholder="Degree Name / Major" value="${edu.degree || ''}">
         </div>
         <div class="form-row">
           <div class="form-group">
             <label>Graduation Year/Period</label>
-            <input type="text" class="edu-date" placeholder="2023 - 2027" value="${edu.date || ''}">
+            <input type="text" class="edu-date" placeholder="YYYY - YYYY" value="${edu.date || ''}">
           </div>
           <div class="form-group">
             <label>GPA / CGPA / Marks</label>
-            <input type="text" class="edu-gpa" placeholder="9.0/10" value="${edu.gpa || ''}">
+            <input type="text" class="edu-gpa" placeholder="0.0 / 10.0" value="${edu.gpa || ''}">
           </div>
         </div>
       `;
@@ -521,26 +526,26 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="form-row">
           <div class="form-group">
             <label>Company / Organization</label>
-            <input type="text" class="exp-company" placeholder="Acme Corp" value="${exp.company || ''}">
+            <input type="text" class="exp-company" placeholder="Company / Organization Name" value="${exp.company || ''}">
           </div>
           <div class="form-group">
             <label>Job Title / Role</label>
-            <input type="text" class="exp-role" placeholder="Software Engineer Intern" value="${exp.role || ''}">
+            <input type="text" class="exp-role" placeholder="Job Title / Role" value="${exp.role || ''}">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
             <label>Duration / Dates</label>
-            <input type="text" class="exp-date" placeholder="May 2025 - August 2025" value="${exp.date || ''}">
+            <input type="text" class="exp-date" placeholder="Month YYYY - Month YYYY" value="${exp.date || ''}">
           </div>
           <div class="form-group">
             <label>Location</label>
-            <input type="text" class="exp-location" placeholder="Bengaluru, India" value="${exp.location || ''}">
+            <input type="text" class="exp-location" placeholder="City, Country / Remote" value="${exp.location || ''}">
           </div>
         </div>
         <div class="form-group">
           <label>Bullet Points (one per line)</label>
-          <textarea class="exp-bullets" rows="4" placeholder="- Developed dynamic UI...">${exp.bullets || ''}</textarea>
+          <textarea class="exp-bullets" rows="4" placeholder="- Describe key responsibilities and measurable impact...">${exp.bullets || ''}</textarea>
         </div>
       `;
       experienceInputs.appendChild(block);
@@ -562,26 +567,26 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="form-row">
           <div class="form-group">
             <label>Project Title</label>
-            <input type="text" class="proj-title" placeholder="Project name" value="${proj.title || ''}">
+            <input type="text" class="proj-title" placeholder="Project Title" value="${proj.title || ''}">
           </div>
           <div class="form-group">
             <label>Technologies Used</label>
-            <input type="text" class="proj-tech" placeholder="Python, Django, AWS" value="${proj.tech || ''}">
+            <input type="text" class="proj-tech" placeholder="Tech 1, Tech 2, Tech 3, Tech 4" value="${proj.tech || ''}">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
             <label>Timeline / Date</label>
-            <input type="text" class="proj-date" placeholder="Feb 2025 - Mar 2025" value="${proj.date || ''}">
+            <input type="text" class="proj-date" placeholder="Month YYYY - Month YYYY" value="${proj.date || ''}">
           </div>
           <div class="form-group">
             <label>Project Link / Repository</label>
-            <input type="text" class="proj-link" placeholder="github.com/..." value="${proj.link || ''}">
+            <input type="text" class="proj-link" placeholder="https://github.com/yourusername/project-repo" value="${proj.link || ''}">
           </div>
         </div>
         <div class="form-group">
           <label>Bullet Points (one per line)</label>
-          <textarea class="proj-bullets" rows="4" placeholder="- Designed core REST API...">${proj.bullets || ''}</textarea>
+          <textarea class="proj-bullets" rows="4" placeholder="- Describe problem solved and core engineering...">${proj.bullets || ''}</textarea>
         </div>
       `;
       projectsInputs.appendChild(block);
@@ -709,7 +714,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('reset-btn').addEventListener('click', () => {
     if (confirm("Are you sure you want to restore default template details? This will overwrite your current progress.")) {
-      localStorage.removeItem('ronit_sinha_resume_data');
+      ['ronit_sinha_resume_data', 'btech_resume_builder_data', 'resume_builder_data_v1', 'resume_builder_data_v2', 'resume_builder_data_v3', STORAGE_KEY].forEach(k => localStorage.removeItem(k));
       location.reload();
     }
   });
@@ -743,11 +748,11 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <div class="form-group">
           <label>Certificate Name</label>
-          <input type="text" class="cert-name" placeholder="Google Cloud Certified Associate Cloud Engineer" value="${cert.name || ''}">
+          <input type="text" class="cert-name" placeholder="Certification Name" value="${cert.name || ''}">
         </div>
         <div class="form-group">
           <label>Description / Authority</label>
-          <input type="text" class="cert-desc" placeholder="Validated cloud engineering skills." value="${cert.desc || ''}">
+          <input type="text" class="cert-desc" placeholder="Issuing Organization / Authority • Description of skills validated." value="${cert.desc || ''}">
         </div>
       `;
       certificationsInputs.appendChild(block);
